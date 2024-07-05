@@ -34,10 +34,8 @@ const items = ref([
     }
 ]);
 const colorMode = useColorMode()
-const isDark = ref(false)
 const toggleColorScheme = () => {
     colorMode.preference = (colorMode.value === 'light' ? 'dark' : 'light')
-    isDark.value = !isDark.value
 }
 </script>
 
@@ -74,9 +72,9 @@ const toggleColorScheme = () => {
                                 aria-label="Search" />
                         </div>
                         <div>
-                            <Button icon="pi pi-sun" v-if="isDark" @click="toggleColorScheme" severity="secondary"
+                            <Button icon="pi pi-sun" v-if="colorMode.value=='dark'" @click="toggleColorScheme" severity="secondary"
                                 rounded aria-label="light" />
-                            <Button icon="pi pi-moon" v-if="!isDark" @click="toggleColorScheme" severity="secondary"
+                            <Button icon="pi pi-moon" v-if="colorMode.value=='light'" @click="toggleColorScheme" severity="secondary"
                                 rounded aria-label="dark" />
                         </div>
                     </div>
