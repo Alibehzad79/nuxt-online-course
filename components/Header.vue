@@ -49,7 +49,9 @@ const toggleColorScheme = () => {
         <div v-if="!load" class="mt-2 fixed top-0 left-0 right-0 mx-auto container">
             <Menubar :model="items">
                 <template #start>
-                    <Avatar image="image.jpg" size="large" class="me-3" shape="circle" />
+                    <NuxtLink to="/">
+                        <Avatar image="image.jpg" size="large" class="me-3" shape="circle" />
+                    </NuxtLink>
                 </template>
                 <template #item="{ item, props, hasSubmenu }">
                     <RouterLink v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
