@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
     '@nuxtjs/color-mode',
+    '@vueuse/nuxt',
     '@primevue/nuxt-module',
   ],
   css: ['~/assets/css/main.css', 'primeicons/primeicons.css'],
