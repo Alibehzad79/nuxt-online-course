@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    transition: all ease-in 0.3s;
+}
+
+.dark-mode body {
+    background-color: #272a2c;
+    color: #ebf4f1;
+    transition: all ease-in 0.3s;
+}
+
+.sepia-mode body {
+    background-color: #f1e7d0;
+    color: #433422;
+    transition: all ease-in 0.3s;
+}
+
+.router-link-active,
+.router-link-exact-active {
+    color: var(--p-menubar-item-focus-color);
+    background: var(--p-menubar-item-focus-background);
+    border-radius: 0.3rem;
+}
