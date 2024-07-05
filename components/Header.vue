@@ -72,10 +72,10 @@ const toggleColorScheme = () => {
                                 aria-label="Search" />
                         </div>
                         <div>
-                            <Button icon="pi pi-sun" v-if="colorMode.value=='dark'" @click="toggleColorScheme" severity="secondary"
-                                rounded aria-label="light" />
-                            <Button icon="pi pi-moon" v-if="colorMode.value=='light'" @click="toggleColorScheme" severity="secondary"
-                                rounded aria-label="dark" />
+                            <Button icon="pi pi-sun" v-if="colorMode.value == 'dark'" @click="toggleColorScheme"
+                                severity="secondary" rounded aria-label="light" />
+                            <Button icon="pi pi-moon" v-if="colorMode.value == 'light'" @click="toggleColorScheme"
+                                severity="secondary" rounded aria-label="dark" />
                         </div>
                     </div>
                 </template>
