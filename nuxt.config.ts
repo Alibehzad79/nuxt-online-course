@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@primevue/nuxt-module',
     "@nuxt/image",
+    'nuxt-aos',
   ],
   css: ['~/assets/css/main.css', 'primeicons/primeicons.css'],
   primevue: {
