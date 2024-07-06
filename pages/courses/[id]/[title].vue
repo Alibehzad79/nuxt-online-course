@@ -6,6 +6,7 @@ const route = useRoute()
 
 <template>
     <div>
+        {{ route.params.id }}
         {{ route.params.title }}
     </div>
 </template>

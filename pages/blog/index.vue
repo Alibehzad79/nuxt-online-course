@@ -1,6 +1,6 @@
 <script setup>
     useSeoMeta({
-        title: "Filmes"
+        title: "Blog"
     })
 </script>
 

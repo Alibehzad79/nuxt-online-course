@@ -18,18 +18,18 @@ const items = ref([
         route: "/"
     },
     {
-        label: 'Filmes',
+        label: 'Courses',
         icon: 'pi pi-video',
-        route: "/filmes"
+        route: "/courses"
     },
     {
-        label: 'Series',
-        icon: 'pi pi-desktop',
-        route: "/series"
+        label: 'Blog',
+        icon: 'pi pi-book',
+        route: "/blog"
     },
     {
         label: 'About',
-        icon: 'pi pi-book',
+        icon: 'pi pi-th-large',
         route: "/about"
     }
 ]);
@@ -48,7 +48,7 @@ const toggleColorScheme = () => {
             <Menubar :model="items">
                 <template #start>
                     <a href="/">
-                        <Avatar image="image.jpg" size="large" class="me-3" shape="circle" />
+                        <NuxtImg src="/logo.png" class="me-5 bg-white rounded p-5" />
                     </a>
                 </template>
                 <template #item="{ item, props, hasSubmenu }">
@@ -66,10 +66,13 @@ const toggleColorScheme = () => {
                 </template>
                 <template #end>
                     <div class="flex items-center gap-2">
-                        <div>
-                            <InputText placeholder="Search" type="text" class="w-32 sm:w-auto rounded-e-none" />
-                            <Button icon="pi pi-search" severity="success" class="rounded-none rounded-e"
-                                aria-label="Search" />
+                        <div class="flex gap-3">
+                            <NuxtLink to="">
+                                <Button label="SignIn" severity="info" text />
+                            </NuxtLink>
+                            <NuxtLink to="">
+                                <Button label="SignUp" severity="info" />
+                            </NuxtLink>
                         </div>
                         <div>
                             <Button icon="pi pi-sun" v-if="colorMode.value == 'dark'" @click="toggleColorScheme"

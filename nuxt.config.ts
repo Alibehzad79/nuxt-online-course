@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@primevue/nuxt-module',
+    "@nuxt/image",
   ],
   css: ['~/assets/css/main.css', 'primeicons/primeicons.css'],
   primevue: {

@@ -1,6 +1,6 @@
 <script setup>
     useSeoMeta({
-        title: "Series"
+        title: "Courses"
     })
 </script>
 
