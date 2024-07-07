@@ -19,6 +19,16 @@ const props = defineProps([
 const courseImage = props.image
 const { isLoading } = useImage({ src: courseImage })
 const timeAgo = useTimeAgo(new Date(props.dateCreated))
+
+const courseId = ref()
+
+const goToCourse = (id) => {
+    courseId.value = id
+    setTimeout(() => {
+        return navigateTo('/courses/' + props.id + '/' + props.title.replaceAll(' ', '-'))
+    }, 1000);
+}
+
 </script>
 
 <template>
@@ -26,27 +36,29 @@ const timeAgo = useTimeAgo(new Date(props.dateCreated))
         <div v-if="load">
             <Progress />
         </div>
-        <NuxtLink :to="`/courses/${id}/${title.replaceAll(' ', '-')}`" v-if="!load">
-            <Card style="overflow: hidden; width: 20rem;" data-aos="fade-up">
-                <template #header>
-                    <img :alt="title" v-if="!isLoading" :src="courseImage" style="height: 20rem; width: 100%;" />
-                    <div v-if="isLoading">
-                        <Progress />
-                    </div>
-                </template>
-                <template #title>{{ title }}</template>
-                <template #subtitle>
-                    <div class="flex flex-col gap-2">
-                        <div><span class="pi pi-clock me-1"></span> {{ courseTime }}</div>
-                        <div><span class="pi pi-calendar"></span> {{ timeAgo }} ago</div>
-                    </div>
-                </template>
-                <template #footer>
-                    <div class="flex gap-4 mt-1">
-                        <Button :label="`Price: ${price}`" severity="contrast" class="w-full" />
-                    </div>
-                </template>
-            </Card>
-        </NuxtLink>
+        <Card style="overflow: hidden; width: 100%;" data-aos="fade-up" v-if="!load">
+            <template #header>
+                <img class="cursor-pointer" :alt="title" v-if="!isLoading" @click="goToCourse(id)" :src="courseImage"
+                    style="height: 20rem; width: 100%;" />
+                <div v-if="isLoading">
+                    <Progress />
+                </div>
+            </template>
+            <template #title>
+                <div class="cursor-pointer" @click="goToCourse(id)">{{ title }}</div>
+            </template>
+            <template #subtitle>
+                <div class="flex flex-col gap-2">
+                    <div><span class="pi pi-clock me-1"></span> {{ courseTime }}</div>
+                    <div><span class="pi pi-calendar"></span> {{ timeAgo }} ago</div>
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex gap-4 mt-1">
+                    <Button :label="`Price: ${price}`" @click="goToCourse(id)" :loading="id === courseId"
+                        severity="contrast" class="w-full" />
+                </div>
+            </template>
+        </Card>
     </div>
 </template>

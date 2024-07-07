@@ -5,7 +5,7 @@ useSeoMeta({
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-col gap-5">
         <Hero data-aos="fade-up" />
         <Categories data-aos="fade-up" />
         <LatestCourses />

@@ -21,7 +21,7 @@ const refreshCourses = () => {
         <div v-if="load">
             <Progress />
         </div>
-        <div v-if="!load" class="mt-5 p-5 rounded-xl border">
+        <div v-if="!load" class="mt-5 p-5 rounded-xl">
             <div class="flex flex-col md:flex-row justify-between items-between gap-5">
                 <h4 class="text-2xl font-bold">We have <span class="text-blue-600">+80</span> Teachers and <span
                         class="text-orange-600">+68</span> Courses</h4>
@@ -35,7 +35,7 @@ const refreshCourses = () => {
                 <Button type="button" severity="contrast" label="Refresh Data" icon="pi pi-refresh" :loading="isRefresh"
                     @click="refreshCourses" />
             </div>
-            <div class="mt-20">
+            <div class="mt-5">
                 <div v-if="pending">
                     <Progress />
                 </div>

@@ -25,7 +25,7 @@ const items = ref([
     {
         label: 'Blog',
         icon: 'pi pi-book',
-        route: "/blog"
+        route: "/blog/articles"
     },
     {
         label: 'About',
