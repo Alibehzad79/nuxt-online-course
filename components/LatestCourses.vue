@@ -5,8 +5,15 @@ tryOnMounted(() => {
     load.value = false
 })
 
-const { data: courses, pending, error } = await useFetch('https://freetestapi.com/api/v1/posts?limit=6', { lazy: true })
-
+const { data: courses, pending, error, refresh } = await useFetch('https://freetestapi.com/api/v1/posts?limit=6', { lazy: true })
+const isRefresh = ref(false)
+const refreshCourses = () => {
+    isRefresh.value = true
+    refresh()
+    setTimeout(() => {
+        isRefresh.value = false
+    }, 5000);
+}
 </script>
 
 <template>
@@ -23,8 +30,10 @@ const { data: courses, pending, error } = await useFetch('https://freetestapi.co
                         size="medium" />
                 </NuxtLink>
             </div>
-            <div v-if="error" class="mt-5">
+            <div v-if="error" class="mt-5 text-center flex flex-col items-center gap-5">
                 <Message severity="error">Error {{ error.statusCode }}</Message>
+                <Button type="button" severity="contrast" label="Refresh Data" icon="pi pi-refresh" :loading="isRefresh"
+                    @click="refreshCourses" />
             </div>
             <div class="mt-20">
                 <div v-if="pending">
