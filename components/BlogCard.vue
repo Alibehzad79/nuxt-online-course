@@ -1,24 +1,23 @@
 <script setup>
-import { useImage, useTimeAgo } from '@vueuse/core'
 const load = ref(true)
 
 tryOnMounted(() => {
     load.value = false
 })
 
+import { useTimeAgo } from '@vueuse/core'
 const props = defineProps([
     'id',
     'title',
-    'courseTime',
-    'rating',
-    'image',
-    'price',
     'dateCreated',
+    'category',
+    'image',
 ])
 
-const courseImage = props.image
-const { isLoading } = useImage({ src: courseImage })
+const link = '/blog/' + props.title.replaceAll(" ", "-")
 const timeAgo = useTimeAgo(new Date(props.dateCreated))
+const blogImage = props.image
+const { isLoading } = useImage({ src: blogImage })
 </script>
 
 <template>
@@ -26,24 +25,26 @@ const timeAgo = useTimeAgo(new Date(props.dateCreated))
         <div v-if="load">
             <Progress />
         </div>
-        <NuxtLink :to="`/courses/${id}/${title.replaceAll(' ', '-')}`" v-if="!load">
-            <Card style="overflow: hidden; width: 20rem;" data-aos="fade-up">
+        <NuxtLink :to="link" v-if="!load">
+            <Card style="width: 20rem; overflow: hidden" class="w-full" data-aos="fade-up">
                 <template #header>
-                    <img :alt="title" v-if="!isLoading" :src="courseImage" style="height: 20rem; width: 100%;" />
+                    <img :alt="title" :src="image" v-if="!isLoading" style="height: 20rem; width: 100%;" />
                     <div v-if="isLoading">
                         <Progress />
                     </div>
                 </template>
                 <template #title>{{ title }}</template>
                 <template #subtitle>
-                    <div class="flex flex-col gap-2">
-                        <div><span class="pi pi-clock me-1"></span> {{ courseTime }}</div>
+                    <div class="flex flex-col gap-3">
+                        <div><span class="pi pi-tag me-1"></span> {{ category }}</div>
                         <div><span class="pi pi-calendar"></span> {{ timeAgo }} ago</div>
                     </div>
                 </template>
                 <template #footer>
                     <div class="flex gap-4 mt-1">
-                        <Button :label="`Price: ${price}`" severity="contrast" class="w-full" />
+                        <NuxtLink :to="link" class="w-full">
+                            <Button label="More..." severity="contrast" outlined class="w-full" />
+                        </NuxtLink>
                     </div>
                 </template>
             </Card>

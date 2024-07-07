@@ -9,6 +9,7 @@ useSeoMeta({
         <Hero data-aos="fade-up" />
         <Categories data-aos="fade-up" />
         <LatestCourses />
+        <LatestBlog />
     </div>
-    
+
 </template>
