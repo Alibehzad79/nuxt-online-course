@@ -10,4 +10,5 @@ useSeoMeta({
         <Categories data-aos="fade-up" />
         <LatestCourses />
     </div>
+    
 </template>
