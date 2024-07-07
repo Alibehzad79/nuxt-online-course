@@ -16,6 +16,8 @@ const goSearch = () => {
     }
 }
 
+const heroImage = "/image.jpg"
+const { loadingHeroImage } = useImage({ src: heroImage })
 </script>
 
 <template>
@@ -51,7 +53,10 @@ const goSearch = () => {
                         </InputGroup>
                     </div>
                 </div>
-                <NuxtImg src="/image.jpg" class="rounded-3xl hidden lg:flex" />
+                <NuxtImg src="/image.jpg" v-if="!loadingHeroImage" class="rounded-3xl hidden lg:flex" />
+                <div v-if="loadingHeroImage">
+                    <Progress />
+                </div>
             </div>
             <div class="p-5 grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center w-full">
                 <MiniCard title="1300" subtitle="Students" icon="users" />
