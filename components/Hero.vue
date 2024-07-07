@@ -54,10 +54,10 @@ const goSearch = () => {
                 <NuxtImg src="/image.jpg" class="rounded-3xl hidden lg:flex" />
             </div>
             <div class="p-5 grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center w-full">
-                <MiniCard title="1300+" subtitle="Students" icon="users" />
-                <MiniCard title="200+" subtitle="Skilled Students" icon="id-card" />
-                <MiniCard title="150+" subtitle="Programs" icon="receipt" />
-                <MiniCard title="68+" subtitle="Courses" icon="folder" />
+                <MiniCard title="1300" subtitle="Students" icon="users" />
+                <MiniCard title="200" subtitle="Skilled Students" icon="id-card" />
+                <MiniCard title="150" subtitle="Programs" icon="receipt" />
+                <MiniCard title="68" subtitle="Courses" icon="folder" />
             </div>
         </div>
     </div>

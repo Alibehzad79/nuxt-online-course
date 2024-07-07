@@ -23,6 +23,9 @@ const { data: courses, pending, error } = await useFetch('https://freetestapi.co
                         size="medium" />
                 </NuxtLink>
             </div>
+            <div v-if="error" class="mt-5">
+                <Message severity="error">Error {{ error.statusCode }}</Message>
+            </div>
             <div class="mt-20">
                 <div v-if="pending">
                     <Progress />
