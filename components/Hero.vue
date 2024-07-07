@@ -53,7 +53,7 @@ const { loadingHeroImage } = useImage({ src: heroImage })
                         </InputGroup>
                     </div>
                 </div>
-                <NuxtImg src="/image.jpg" v-if="!loadingHeroImage" class="rounded-3xl hidden lg:flex" />
+                <NuxtImg :src="heroImage" v-if="!loadingHeroImage" class="rounded-3xl hidden lg:flex" />
                 <div v-if="loadingHeroImage">
                     <Progress />
                 </div>
