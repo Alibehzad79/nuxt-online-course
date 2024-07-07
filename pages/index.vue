@@ -7,7 +7,7 @@ useSeoMeta({
 <template>
     <div>
         <Hero data-aos="fade-up" />
-        <Categories data-aos="fade-left" />
-        <LatestCourses data-aos="fade-right" />
+        <Categories data-aos="fade-up" />
+        <LatestCourses data-aos="fade-up" />
     </div>
 </template>
