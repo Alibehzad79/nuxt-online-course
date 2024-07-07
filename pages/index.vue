@@ -8,6 +8,6 @@ useSeoMeta({
     <div>
         <Hero data-aos="fade-up" />
         <Categories data-aos="fade-up" />
-        <LatestCourses data-aos="fade-up" />
+        <LatestCourses />
     </div>
 </template>

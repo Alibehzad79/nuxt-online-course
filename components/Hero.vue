@@ -31,7 +31,7 @@ const goSearch = () => {
             <div class="p-5 flex gap-5 justify-between rounded-md items-center">
                 <div class="flex flex-col rounded gap-3 items-between justify-around h-96">
                     <div class="flex flex-col gap-3">
-                        <h1 class="text-5xl font-bold">Smart reading where knowledge meets her</h1>
+                        <h1 class="text-3xl md:text-5xl font-bold">Smart reading where knowledge meets her</h1>
                         <p class="text-gray-500 overflow-scroll max-h-28">Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Nulla cum

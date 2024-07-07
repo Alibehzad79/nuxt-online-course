@@ -63,12 +63,12 @@ const goToCategory = (category) => {
             <Progress />
         </div>
         <div class="mt-5 p-5 flex flex-col items-center justify-center rounded-xl border" v-if="!load && categories">
-            <div class="flex flex-col justify-center items-center mx-auto w-1/2 text-center gap-3">
-                <h4 class="text-4xl font-bold">Find Courses with Categories</h4>
+            <div class="flex flex-col justify-center items-center w-full md:mx-auto md:w-1/2 md:text-center gap-3">
+                <h4 class="text-2xl md:text-4xl font-bold">Find Courses with <span class="text-pink-600">Categories</span></h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nesciunt totam, voluptatibus delectus,
                     repudiandae distinctio officiis neque sunt maxime recusandae animi. Quibusdam consectetur</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 justify-center items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 justify-center items-center">
                 <Button v-for="category in categories" @click="goToCategory(category)" :key="category.id"
                     :label="category.name" :icon="`pi pi-${category.icon}`" severity="secondary" size="large" rounded />
 

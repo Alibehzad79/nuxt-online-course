@@ -26,7 +26,7 @@ const timeAgo = useTimeAgo(new Date(props.dateCreated))
         <div v-if="load">
             <Progress />
         </div>
-        <NuxtLink :to="`/courses/${id}/${title.replaceAll(' ', '-')}`" v-if="!load">
+        <NuxtLink :to="`/courses/${id}/${title.replaceAll(' ', '-')}`" v-if="!load" data-aos="fade-up">
             <Card style="overflow: hidden; width: 20rem;">
                 <template #header>
                     <img :alt="title" v-if="!isLoading" :src="courseImage" style="height: 20rem; width: 100%;" />
