@@ -23,8 +23,8 @@ const refreshCourses = () => {
         </div>
         <div v-if="!load" class="mt-5 p-5 rounded-xl">
             <div class="flex flex-col md:flex-row justify-between items-between gap-5">
-                <h4 class="text-2xl font-bold">We have <span class="text-blue-600">+80</span> Teachers and <span
-                        class="text-orange-600">+68</span> Courses</h4>
+                <h4 class="text-2xl font-bold">We have <span class="text-blue-600">80+</span> Teachers and <span
+                        class="text-orange-600">108+</span> Courses</h4>
                 <NuxtLink to="/courses">
                     <Button type="button" severity="contrast" label="See All Courses" icon="pi pi-arrow-up-right"
                         size="medium" />
