@@ -39,7 +39,7 @@ const goToCourse = (id) => {
         <Card style="overflow: hidden; width: 100%;" data-aos="fade-up" v-if="!load">
             <template #header>
                 <img class="cursor-pointer" :alt="title" v-if="!isLoading" @click="goToCourse(id)" :src="courseImage"
-                    style="height: 20rem; width: 100%;" />
+                    style="width: 100%;" />
                 <div v-if="isLoading">
                     <Progress />
                 </div>

@@ -42,7 +42,7 @@ const refreshCourses = () => {
                 <div v-if="courses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                     <div v-for="course in courses" :key="course.id">
                         <CourseCard :id="course.id" :title="course.title"
-                            image="https://picsum.photos/seed/picsum/200/300" rating="5"
+                            image="https://picsum.photos/seed/picsum/500/500" rating="5"
                             course-time="2 hours and 5 minute" price="40000" :date-created="course.timestamp" />
                     </div>
                 </div>

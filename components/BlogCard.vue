@@ -13,8 +13,6 @@ const props = defineProps([
     'category',
     'image',
 ])
-
-const link = '/blog/articles/' + props.title.replaceAll(" ", "-")
 const timeAgo = useTimeAgo(new Date(props.dateCreated))
 const blogImage = props.image
 const { isLoading } = useImage({ src: blogImage })
@@ -40,7 +38,7 @@ const goToArticle = (id) => {
         <Card style="width: 100%; overflow: hidden" class="w-full" data-aos="fade-up" v-if="!load">
             <template #header>
                 <img :alt="title" @click="goToArticle(id)" class="cursor-pointer" :src="image" v-if="!isLoading"
-                    style="height: 20rem; width: 100%;" />
+                    style="width: 100%;" />
                 <div v-if="isLoading">
                     <Progress />
                 </div>

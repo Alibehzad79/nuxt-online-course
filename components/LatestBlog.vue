@@ -5,7 +5,7 @@ tryOnMounted(() => {
     load.value = false
 })
 
-const { data: articles, pending, refresh, error } = await useFetch('https://freetestapi.com/api/v1/posts?limit=4')
+const { data: articles, pending, refresh, error } = await useFetch('https://freetestapi.com/api/v1/posts?limit=3')
 const isRefresh = ref(false)
 const refreshArticles = () => {
     isRefresh.value = true
@@ -38,10 +38,10 @@ const refreshArticles = () => {
                     <Button type="button" severity="contrast" label="Refresh Data" icon="pi pi-refresh"
                         :loading="isRefresh" @click="refreshArticles" />
                 </div>
-                <div v-if="articles" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 jsutify-items-center">
+                <div v-if="articles" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 jsutify-items-center">
                     <div v-for="article in articles">
                         <BlogCard :key="article.id" :id="article.id" :title="article.title"
-                            image="https://picsum.photos/id/237/200" :date-created="article.timestamp"
+                            image="https://picsum.photos/id/500/500" :date-created="article.timestamp"
                             :category="article.author" />
                     </div>
                 </div>
