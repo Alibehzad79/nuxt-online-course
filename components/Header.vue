@@ -44,7 +44,7 @@ const toggleColorScheme = () => {
         <div v-if="load" class="items-center flex justify-center mt-5">
             <Progress />
         </div>
-        <div v-if="!load" class="mt-2 fixed top-0 left-0 right-0 mx-auto container z-50">
+        <div v-if="!load" class="mt-2 fixed top-0 left-0 right-0 mx-auto container z-50 w-96">
             <Menubar :model="items">
                 <template #start>
                     <a href="/">
