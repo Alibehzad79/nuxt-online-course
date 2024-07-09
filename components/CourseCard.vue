@@ -26,7 +26,7 @@ const goToCourse = (id) => {
     courseId.value = id
     setTimeout(() => {
         return navigateTo('/courses/' + props.id + '/' + props.title.replaceAll(' ', '-'))
-    }, 1000);
+    }, 100);
 }
 
 </script>

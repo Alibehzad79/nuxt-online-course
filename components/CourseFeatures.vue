@@ -19,7 +19,7 @@ const props = defineProps([
         <div v-if="load">
             <Progress />
         </div>
-        <div v-if="!load" class="flex flex-col gap-5">
+        <div v-if="!load" class="flex flex-col gap-5 w-96">
             <div class="text-center p-5 bg-[#525fe1] rounded-t-xl">
                 <h5 class="text-white">Course Features</h5>
             </div>
@@ -36,23 +36,25 @@ const props = defineProps([
                         <span class="pi pi-video"></span>
                         <span>Video Count</span>
                     </div>
-                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ videoCount }}</span>
+                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ videoCount }} Video</span>
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="flex gap-2 items-center">
                         <span class="pi pi-user"></span>
                         <span>Student Count</span>
                     </div>
-                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ studentsCount }} Day's</span>
+                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ studentsCount }} Student</span>
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="flex gap-2 items-center">
                         <span class="pi pi-trophy"></span>
                         <span>Have Certification</span>
                     </div>
-                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ haveCertification }} Day's</span>
+                    <span class="p-2 bg-[#525fe1] text-white rounded-lg">{{ haveCertification }}</span>
                 </div>
             </div>
+            <Button :label="`Price: $${price}`" text class="bg-[#525fe1] text-white" size="large" />
+            <Button label="Buy Now" text class="bg-[#525fe1] text-white rounded-none" size="large" />
         </div>
     </div>
 </template>

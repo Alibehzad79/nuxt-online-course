@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   primevue: {
     usePrimeVue: true,
     autoImport: true,
+    ripple: true,
     options: {
       theme: {
         preset: Aura,

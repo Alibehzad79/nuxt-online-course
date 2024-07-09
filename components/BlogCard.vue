@@ -24,7 +24,7 @@ const goToArticle = (id) => {
     articleId.value = id
     setTimeout(() => {
         return navigateTo('/blog/articles/' + props.id + '/' + props.title.replaceAll(' ', '-'))
-    }, 1000);
+    }, 100);
 }
 
 
