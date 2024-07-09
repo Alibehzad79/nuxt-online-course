@@ -32,8 +32,8 @@ const goToTeacher = (course) => {
         <div v-if="load">
             <Progress />
         </div>
-        <div class="flex flex-col md:flex-row w-full gap-5 justify-start items-center" v-if="!load">
-            <div class="md:w-2/3 p-5 flex flex-col gap-5">
+        <div class="flex flex-col lg:flex-row w-full gap-5 justify-center items-center" v-if="!load">
+            <div class="lg:w-2/3 p-5 flex flex-col gap-5">
                 <Image src="/course.jpg" alt="" width="100%" />
                 <h1 class="text-5xl font-bold">{{ course.title }}</h1>
                 <div class="flex flex-wrap gap-5">
@@ -46,7 +46,7 @@ const goToTeacher = (course) => {
                     {{ course.content }}
                 </div>
             </div>
-            <div class="md:w-1/3 p-5 flex flex-col gap-5">
+            <div class="lg:w-1/3 p-5 flex flex-col gap-5">
                 <CourseFeatures courseLength="10" videoCount="30" studentsCount="1500" haveCertification="Yes"
                     price="45" />
                 <RelatedCourses />

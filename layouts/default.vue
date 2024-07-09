@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="container mx-auto flex flex-col gap-5">
+    <div class="">
         <Header />
-        <main>
+        <main class="container mx-auto flex flex-col gap-5">
             <slot />
         </main>
         <Footer />
