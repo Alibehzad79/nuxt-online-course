@@ -1,6 +1,6 @@
 <script setup>
 import { useTimeAgo } from '@vueuse/core'
-
+import { useDateFormat } from '@vueuse/core'
 const load = ref(true)
 
 tryOnMounted(() => {
@@ -10,9 +10,20 @@ tryOnMounted(() => {
 const route = useRoute()
 
 const { data: course, pending, error } = await useFetch(`https://freetestapi.com/api/v1/posts/${route.params.id}`)
-console.log(course.timestamp)
-const timeAgo = useTimeAgo(new Date(String(course.timestamp)))
-console.log(timeAgo)
+
+const timeAgo = (time) => {
+    return useTimeAgo(new Date(time))
+}
+
+const btnLoading = ref(false)
+
+const goToTeacher = (course) => {
+    btnLoading.value = true
+    setTimeout(() => {
+        return navigateTo('/teachers/' + course.author.toLowerCase().replaceAll(' ', '-'))
+    }, 100);
+}
+
 
 </script>
 
@@ -26,7 +37,10 @@ console.log(timeAgo)
                 <Image src="/course.jpg" alt="" width="100%" />
                 <h1 class="text-5xl font-bold">{{ course.title }}</h1>
                 <div class="flex flex-wrap gap-5">
-                    <span class="flex items-center gap-2"><i class="pi pi-calendar"></i>{{ timeAgo }}</span>
+                    <Button type="button" :label="course.author" icon="pi pi-user" @click="goToTeacher(course)"
+                        :loading="btnLoading" text />
+                    <span class="flex items-center gap-2"><i class="pi pi-calendar"></i>{{ timeAgo(course.timestamp)
+                        }}</span>
                 </div>
                 <div class="mt-5">
                     {{ course.content }}
