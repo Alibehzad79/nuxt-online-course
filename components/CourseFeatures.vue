@@ -21,7 +21,7 @@ const props = defineProps([
         </div>
         <div v-if="!load" class="flex flex-col gap-5 w-96">
             <div class="text-center p-5 bg-[#525fe1] rounded-t-xl">
-                <h5 class="text-white">Course Features</h5>
+                <h5 class="text-white font-bold text-2xl">Course Features</h5>
             </div>
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-center">
