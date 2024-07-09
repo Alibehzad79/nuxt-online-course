@@ -11,6 +11,13 @@ export default defineNuxtConfig({
     "@nuxt/image",
     'nuxt-aos',
   ],
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: "/fovIcon.jpg" }
+      ]
+    }
+  },
   css: ['~/assets/css/main.css', 'primeicons/primeicons.css'],
   primevue: {
     usePrimeVue: true,

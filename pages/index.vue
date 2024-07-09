@@ -5,7 +5,7 @@ tryOnMounted(() => {
     load.value = false
 })
 useSeoMeta({
-    title: "Home | Free Online Courses"
+    title: "Home | Free Online Courses",
 })
 </script>
 
