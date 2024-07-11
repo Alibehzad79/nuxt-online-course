@@ -20,7 +20,7 @@ const props = defineProps([
         <div v-if="!load" style="min-height: 300px;
                     max-height: 300px"
             class="w-full rounded-3xl flex flex-col items-center justify-center gap-5 bg-gradient-to-l from-blue-200">
-            <h5 class="text-2xl md:text-5xl font-bold">{{ title }}</h5>
+            <h5 class="text-3xl md:text-5xl font-bold">{{ title }}</h5>
             <div class="card flex justify-center">
                 <Breadcrumb :home="home" :model="items" class="rounded-xl bg-transparent">
                     <template #item="{ item, props }">
