@@ -78,14 +78,22 @@ const getSub = () => {
                     <div class="flex flex-col gap-2">
                         <h5 class="font-bold text-2xl">Share in:</h5>
                         <div class="flex felx-wrap gap-2">
-                            <Button label="Telegram" icon="pi pi-telegram" severity="secondary"
-                                class="bg-blue-500 text-white" />
-                            <Button label="Instagram" icon="pi pi-instagram" severity="secondary"
-                                class="bg-pink-500 text-white" />
-                            <Button label="Facebook" icon="pi pi-facebook" severity="secondary"
-                                class="bg-blue-500 text-white" />
-                            <Button label="Whatsapp" icon="pi pi-whatsapp" severity="secondary"
-                                class="bg-green-500 text-white" />
+                            <NuxtLink to="#">
+                                <Button label="Telegram" icon="pi pi-telegram" severity="secondary"
+                                    class="bg-blue-500 text-white" />
+                            </NuxtLink>
+                            <NuxtLink to="#">
+                                <Button label="Instagram" icon="pi pi-instagram" severity="secondary"
+                                    class="bg-pink-500 text-white" />
+                            </NuxtLink>
+                            <NuxtLink to="#">
+                                <Button label="Facebook" icon="pi pi-facebook" severity="secondary"
+                                    class="bg-blue-500 text-white" />
+                            </NuxtLink>
+                            <NuxtLink to="#">
+                                <Button label="Whatsapp" icon="pi pi-whatsapp" severity="secondary"
+                                    class="bg-green-500 text-white" />
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>
