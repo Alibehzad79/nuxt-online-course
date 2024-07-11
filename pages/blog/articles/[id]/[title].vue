@@ -14,7 +14,7 @@ const home = ref({
 });
 
 const { data: article, pending, error } = await useFetch(`https://freetestapi.com/api/v1/posts/${route.params.id}`)
-const { data: comments, pending: cPending, refresh: cRefresh, error: cError } = await useFetch('https://jsonplaceholder.typicode.com/comments', { lazy: true })
+const { data: comments, pending: cPending, refresh: cRefresh, error: cError } = await useFetch(`https://jsonplaceholder.typicode.com//posts/${route.params.id}/comments`, { lazy: true })
 const subEmail = ref('')
 const search = ref('')
 const btnLoading = ref(false)
