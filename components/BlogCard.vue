@@ -35,7 +35,7 @@ const goToArticle = (id) => {
         <div v-if="load">
             <Progress />
         </div>
-        <div data-aos="fade-up" v-if="!load">
+        <div v-if="!load">
             <Card style="width: 100%; overflow: hidden" class="w-full">
                 <template #header>
                     <img :alt="title" @click="goToArticle(id)" class="cursor-pointer" :src="image" v-if="!isLoading"
