@@ -18,6 +18,14 @@ const items = ref([
 
 const { data: courses, pending, refresh, error } = await useFetch(`https://freetestapi.com/api/v1/posts`, { lazy: true })
 
+const isRefresh = ref(false)
+const refreshCourses = () => {
+    isRefresh.value = true
+    setTimeout(() => {
+        refresh()
+        isRefresh.value = false
+    }, 10000);
+}
 </script>
 
 <template>
@@ -26,25 +34,7 @@ const { data: courses, pending, refresh, error } = await useFetch(`https://freet
             <Progress />
         </div>
         <div v-if="!load" class="flex flex-col gap-5">
-            <div style="min-height: 300px; max-height: 300px"
-                class="w-full rounded-3xl flex flex-col items-center justify-center gap-5 bg-gradient-to-l from-blue-200">
-                <h5 class="text-5xl font-bold">All Courses</h5>
-                <div class="card flex justify-center">
-                    <Breadcrumb :home="home" :model="items" class="rounded-xl bg-transparent">
-                        <template #item="{ item, props }">
-                            <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                                <a :href="href" v-bind="props.action" @click="navigate">
-                                    <span :class="[item.icon, 'text-color']" />
-                                    <span class="text-primary font-semibold">{{ item.label }}</span>
-                                </a>
-                            </router-link>
-                            <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                                <span class="text-surface-700 dark:text-surface-0">{{ item.label }}</span>
-                            </a>
-                        </template>
-                    </Breadcrumb>
-                </div>
-            </div>
+            <MyBreadcrumb :items="items" :home="home" title="All Courses" />
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5 mt-5">
                 <div v-if="pending">
                     <Progress />
