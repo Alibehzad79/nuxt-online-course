@@ -71,7 +71,7 @@ const refreshCourse = () => {
                         {{ course.content }}
                     </div>
                 </div>
-                <div class="lg:w-1/3 p-5 flex flex-col gap-5">
+                <div class="lg:w-1/3 p-5 flex flex-col gap-5 w-96">
                     <CourseFeatures courseLength="10" videoCount="30" studentsCount="1500" haveCertification="Yes"
                         price="45" />
                     <RelatedCourses />

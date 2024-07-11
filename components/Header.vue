@@ -40,11 +40,11 @@ const toggleColorScheme = () => {
 </script>
 
 <template>
-    <div>
+    <div class="sticky top-0 z-50 mt-2 mx-auto container">
         <div v-if="load">
             <Progress />
         </div>
-        <div v-if="!load" class="mt-2 fixed top-0 left-0 right-0 mx-auto z-50 container">
+        <div v-if="!load">
             <Menubar :model="items">
                 <template #start>
                     <a href="/">

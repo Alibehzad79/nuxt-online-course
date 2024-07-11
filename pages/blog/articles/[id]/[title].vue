@@ -111,22 +111,22 @@ const sendComment = async () => {
                     </div>
                     <div class="flex flex-col gap-2">
                         <h5 class="font-bold text-xl">Share in:</h5>
-                        <div class="flex felx-wrap gap-2">
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                             <NuxtLink to="#">
                                 <Button label="Telegram" icon="pi pi-telegram" severity="secondary"
-                                    class="bg-blue-500 text-white" />
+                                    class="bg-blue-500 text-white w-full" />
                             </NuxtLink>
                             <NuxtLink to="#">
                                 <Button label="Instagram" icon="pi pi-instagram" severity="secondary"
-                                    class="bg-pink-500 text-white" />
+                                    class="bg-pink-500 text-white w-full" />
                             </NuxtLink>
                             <NuxtLink to="#">
                                 <Button label="Facebook" icon="pi pi-facebook" severity="secondary"
-                                    class="bg-blue-500 text-white" />
+                                    class="bg-blue-500 text-white w-full" />
                             </NuxtLink>
                             <NuxtLink to="#">
                                 <Button label="Whatsapp" icon="pi pi-whatsapp" severity="secondary"
-                                    class="bg-green-500 text-white" />
+                                    class="bg-green-500 text-white w-full" />
                             </NuxtLink>
                         </div>
                     </div>

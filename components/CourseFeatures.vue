@@ -19,7 +19,7 @@ const props = defineProps([
         <div v-if="load">
             <Progress />
         </div>
-        <div v-if="!load" class="flex flex-col gap-5 w-96">
+        <div v-if="!load" class="flex flex-col gap-5">
             <div class="text-center p-5 bg-[#525fe1] rounded-t-xl">
                 <h5 class="text-white font-bold text-2xl">Course Features</h5>
             </div>

@@ -18,7 +18,7 @@ const goToCourse = (id, title) => {
         <div v-if="load">
             <Progress />
         </div>
-        <div v-if="!load" class="flex flex-col gap-5 shadow-2xl p-5 rounded-xl w-96">
+        <div v-if="!load" class="flex flex-col gap-5 shadow-2xl p-5 rounded-xl">
             <h1 class="font-bold text-xl">Related Courses</h1>
             <div class="flex flex-col gap-5">
                 <div class="flex gap-2 border-b p-5 items-center cursor-pointer" @click="goToCourse(2, 'ui-design')">
