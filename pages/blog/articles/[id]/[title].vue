@@ -14,7 +14,7 @@ const home = ref({
 });
 
 const { data: article, pending, error } = await useFetch(`https://freetestapi.com/api/v1/posts/${route.params.id}`)
-const { data: comments, cPending, cRefresh } = await useFetch('https://jsonplaceholder.typicode.com/comments', { lazy: true })
+const { data: comments, pending: cPending, refresh: cRefresh, error: cError } = await useFetch('https://jsonplaceholder.typicode.com/comments', { lazy: true })
 const subEmail = ref('')
 const search = ref('')
 const btnLoading = ref(false)
@@ -40,19 +40,19 @@ const getAuthor = (author) => {
     return navigateTo('/teachers/' + author)
 }
 
-const formData = {
+const formData = ref({
     fName: "",
     lName: "",
     email: "",
     comment: "",
-}
+})
 
 const commentLoading = ref(false)
 const toast = useToast();
 const sendComment = async () => {
     if (formData) {
         commentLoading.value = true
-        const { data: status } = await useFetch('https://jsonplaceholder.typicode.com/comments', {
+        const { status } = await useFetch('https://jsonplaceholder.typicode.com/comments', {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {
@@ -61,13 +61,13 @@ const sendComment = async () => {
         })
         if (status.value === 'success') {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Comment Send Successfuly', life: 3000 })
-            cRefresh()
-            formData = {
+            formData.value = {
                 fName: "",
                 lName: "",
                 email: "",
                 comment: "",
             }
+            cRefresh()
         } else {
             toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to sending comment', life: 3000 })
         }
@@ -159,6 +159,10 @@ const sendComment = async () => {
                         </div>
                         <div v-if="cPending">
                             <Progress />
+                        </div>
+                        <div v-if="cError" class="mt-5 text-center flex flex-col items-center gap-5">
+                            <Message severity="error">Error {{ cError.statusCode }}</Message>
+                            <Button type="button" severity="contrast" label="Refresh Data" @click="cRefresh" />
                         </div>
                         <div class="flex gap-5 cursor-pointer border p-5 rounded-xl" v-for="comment in comments"
                             :key="comment.id">
