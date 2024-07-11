@@ -6,33 +6,47 @@ tryOnMounted(() => {
 })
 
 const route = useRoute()
+const toast = useToast();
+
+const { data: article, pending, error } = await useFetch(`https://freetestapi.com/api/v1/posts/${route.params.id}`)
+const { data: comments, pending: cPending, refresh: cRefresh, error: cError } = await useFetch(`https://jsonplaceholder.typicode.com//posts/${route.params.id}/comments`, { lazy: true })
 
 const home = ref({
     icon: 'pi pi-home',
     route: '/',
     label: "Home"
 });
-
-const { data: article, pending, error } = await useFetch(`https://freetestapi.com/api/v1/posts/${route.params.id}`)
-const { data: comments, pending: cPending, refresh: cRefresh, error: cError } = await useFetch(`https://jsonplaceholder.typicode.com//posts/${route.params.id}/comments`, { lazy: true })
 const subEmail = ref('')
 const search = ref('')
+const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const btnLoading = ref(false)
+const subLoading = ref(false)
+const formData = ref({
+    fName: "",
+    lName: "",
+    email: "",
+    comment: "",
+})
+const commentLoading = ref(false)
+
+
 const getSearch = () => {
     if (search.value) {
         btnLoading.value = true
         return navigateTo('/search/' + search.value.replaceAll(' ', '-'))
     }
 }
-const subLoading = ref(false)
+
 const getSub = () => {
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (subEmail.value.match(mailformat)) {
         subLoading.value = true
         // do sub
         setTimeout(() => {
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Subscribed', life: 3000 })
             subLoading.value = false
         }, 1000);
+    } else {
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Somthing Wrang! please try again.', life: 3000 })
     }
 }
 
@@ -40,38 +54,34 @@ const getAuthor = (author) => {
     return navigateTo('/teachers/' + author)
 }
 
-const formData = ref({
-    fName: "",
-    lName: "",
-    email: "",
-    comment: "",
-})
 
-const commentLoading = ref(false)
-const toast = useToast();
 const sendComment = async () => {
     if (formData) {
-        commentLoading.value = true
-        const { status } = await useFetch('https://jsonplaceholder.typicode.com/comments', {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-        if (status.value === 'success') {
-            toast.add({ severity: 'success', summary: 'Success', detail: 'Comment Send Successfuly', life: 3000 })
-            formData.value = {
-                fName: "",
-                lName: "",
-                email: "",
-                comment: "",
-            }
-            cRefresh()
+        if (!formData.value.email.match(mailformat)) {
+            toast.add({ severity: 'warn', summary: 'Warning', detail: 'Please enter a valid email', life: 3000 })
         } else {
-            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to sending comment', life: 3000 })
+            commentLoading.value = true
+            const { status } = await useFetch('https://jsonplaceholder.typicode.com/comments', {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            if (status.value === 'success') {
+                toast.add({ severity: 'success', summary: 'Success', detail: 'Comment Send Successfuly', life: 3000 })
+                formData.value = {
+                    fName: "",
+                    lName: "",
+                    email: "",
+                    comment: "",
+                }
+                cRefresh()
+            } else {
+                toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to sending comment', life: 3000 })
+            }
+            commentLoading.value = false
         }
-        commentLoading.value = false
     }
 }
 
@@ -187,9 +197,12 @@ const sendComment = async () => {
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea tenetur eaque atque quos fugiat
                             ducimus facilis accusantium, temporibus dolorum officiis. Similique voluptatum est animi,
                             amet aut vel consequatur tempora odit!</p>
-                        <InputText type="email" size="large" placeholder="Email" v-model="subEmail" class="" />
-                        <Button @click="getSub" type="button" label="Subscribe" severity="info" class="rounded-full"
-                            :loading="subLoading" :disabled="subEmail.value != null" size="large" />
+                        <form method="post" @submit.prevent="getSub" class="flex flex-col gap-5">
+                            <InputText type="email" required="true" size="large" placeholder="Email" v-model="subEmail"
+                                class="" />
+                            <Button type="submit" label="Subscribe" severity="info" class="rounded-full"
+                                :loading="subLoading" :disabled="subEmail.value != null" size="large" />
+                        </form>
                     </div>
                 </div>
             </div>
