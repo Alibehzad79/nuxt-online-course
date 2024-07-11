@@ -174,14 +174,14 @@ const sendComment = async () => {
                             <Message severity="error">Error {{ cError.statusCode }}</Message>
                             <Button type="button" severity="contrast" label="Refresh Data" @click="cRefresh" />
                         </div>
-                        <div class="flex gap-5 cursor-pointer border p-5 rounded-xl" v-for="comment in comments"
-                            :key="comment.id">
-                            <Avatar :label="comment.name[0]" class="mr-2 min-w-20 min-h-20" size="xlarge"
-                                shape="circle" />
-                            <div>
+                        <div class="flex flex-col gap-5 cursor-pointer border p-5 rounded-xl"
+                            v-for="comment in comments" :key="comment.id">
+                            <div class="flex gap-2 items-center">
+                                <Avatar :label="comment.name[0]" class="mr-2 min-w-20 min-h-20" size="xlarge"
+                                    shape="circle" />
                                 <strong>{{ comment.name }}</strong>
-                                <p>{{ comment.body }}</p>
                             </div>
+                            <p>{{ comment.body }}</p>
                         </div>
                     </div>
                 </div>
