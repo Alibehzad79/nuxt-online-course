@@ -5,7 +5,7 @@
 <template>
   <div>
     <NuxtLayout>
-      <NuxtPage class="p-5 rounded mt-28 mb-5" />
+      <NuxtPage class="p-5 rounded" />
     </NuxtLayout>
   </div>
 </template>
