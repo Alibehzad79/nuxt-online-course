@@ -49,7 +49,7 @@ const refreshCourse = () => {
         </div>
         <div class="flex flex-col gap-5" v-if="!load">
             <MyBreadcrumb :title="course.title" :home="home" />
-            <div class="flex flex-col lg:flex-row w-full gap-5 justify-center items-center">
+            <div class="flex flex-col lg:flex-row w-full gap-5 justify-center items-start">
                 <div v-if="pending">
                     <Progress />
                 </div>
