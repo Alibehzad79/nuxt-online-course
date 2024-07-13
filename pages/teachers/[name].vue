@@ -38,7 +38,6 @@ const teacher = route.params.name.toUpperCase().replaceAll('-', ' ')
                     <div class="mt-5 flex flex-col gap-2">
                         <span><i class="pi pi-envelope me-2"></i>testmail@mail.com</span>
                         <span><i class="pi pi-phone me-2"></i>+98 9143333333</span>
-                        <span><i class="pi pi-envelope me-2"></i>testmail@mail.com</span>
                     </div>
                     <div class="flex flex-wrap mt-5 gap-2">
                         <NuxtLink to="#">

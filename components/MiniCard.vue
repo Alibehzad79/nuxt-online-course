@@ -28,12 +28,13 @@ const choiseSeverity = severity[(Math.floor(Math.random() * severity.length))]
         <div v-if="load">
             <Progress />
         </div>
-        <div class="flex gap-5 items-center p-5 rounded-xl shadow" style="width: 300px;" v-if="!load">
-            <Button :icon="`pi pi-${props.icon}`" :severity="choiseSeverity" rounded outlined aria-label="Filter" />
-            <div class="flex flex-col gap-1">
-                <span class="font-bold text-3xl">{{ title }}</span>
-                <span class="text-gray-500">{{ props.subtitle }}</span>
+        <div class="flex flex-col gap-5 p-5 rounded-xl shadow" style="width: 300px;" v-if="!load">
+            <div class="flex gap-2 items-center">
+                <Button :icon="`pi pi-${props.icon}`" style="min-width: 40px;" :severity="choiseSeverity" rounded
+                    outlined aria-label="Filter" />
+                <span class="font-bold text-2xl">{{ title }}</span>
             </div>
+            <span class="text-gray-500">{{ props.subtitle }}</span>
         </div>
     </div>
 </template>
