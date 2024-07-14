@@ -8,6 +8,7 @@ tryOnMounted(() => {
     load.value = false
 })
 
+
 const home = ref({
     icon: 'pi pi-home',
     route: '/',
@@ -27,6 +28,7 @@ const refreshArticles = () => {
 }
 
 
+
 </script>
 
 <template>
@@ -36,7 +38,7 @@ const refreshArticles = () => {
         </div>
         <div v-if="!load" class="flex flex-col gap-5">
             <MyBreadcrumb :items="items" :home="home" title="All Articless" />
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5 mt-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
                 <div v-if="pending">
                     <Progress />
                 </div>
