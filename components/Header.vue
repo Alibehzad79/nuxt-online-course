@@ -67,10 +67,10 @@ const toggleColorScheme = () => {
                 <template #end>
                     <div class="flex items-center gap-2">
                         <div class="flex gap-3">
-                            <NuxtLink to="">
+                            <NuxtLink to="/accounts/signin">
                                 <Button label="SignIn" severity="info" text />
                             </NuxtLink>
-                            <NuxtLink to="">
+                            <NuxtLink to="/accounts/signup">
                                 <Button label="SignUp" severity="info" />
                             </NuxtLink>
                         </div>

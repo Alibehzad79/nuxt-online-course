@@ -16,13 +16,16 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: "/fovIcon.jpg" }
       ]
-    }
+    },
+    pageTransition: {
+      name: 'slide-right',
+      mode: 'out-in'
+    },
   },
   css: ['~/assets/css/main.css', 'primeicons/primeicons.css'],
   primevue: {
     usePrimeVue: true,
     autoImport: true,
-    ripple: true,
     options: {
       theme: {
         preset: Aura,
